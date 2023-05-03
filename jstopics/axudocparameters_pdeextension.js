@@ -1,0 +1,12 @@
+hmLoadTopic({
+hmKeywords:"",
+hmTitle:"AXUDocParameters.PDEExtension",
+hmDescription:"Table extension - Parameters (AXUDocParameters.PDEExtension)",
+hmPrevLink:"lacarchive_extensionaxudoc.html",
+hmNextLink:"classes.html",
+hmParentLink:"tables.html",
+hmBreadCrumbs:"<a href=\"chapter-2.html\">FlexxStore<\/a> &gt; Technical design D365FO &gt; <a href=\"tables.html\">Tables<\/a>",
+hmTitlePath:"FlexxStore > Technical design D365FO > Tables > AXUDocParameters.PDEExtension",
+hmHeader:"<h1 class=\"p_Heading1\"><span class=\"f_Heading1\">AXUDocParameters.PDEExtension<\/span><\/h1>\n\r",
+hmBody:"<p style=\"line-height: 1.20; page-break-after: avoid; margin: 0 0 0 0;\">Table extension - Parameters (AXUDocParameters.PDEExtension)<\/p>\n\r<p style=\"line-height: 1.20; page-break-after: avoid; margin: 0 0 0 0;\"><span style=\"font-size: 0.91rem; font-family: Arial,Helvetica,sans-serif; color: #000000;\">&nbsp;<\/span><\/p>\n\r<div style=\"text-align: left; text-indent: 0; line-height: 1.38; padding: 0 0 0 0; margin: 0.6250rem 0 0 0;\"><table style=\"width:42.8125rem; border:none; border-spacing:0; border-collapse:collapse;\">\n\r<tr>\n\r<td style=\"vertical-align:top; width:10.5000rem; background-color:#808080; padding:0.2500rem; border:solid thin #000000;\"><p style=\"text-align: center; line-height: 1.32; margin: 0.2500rem 0 0.2500rem 0;\">System name<\/p>\n\r<\/td>\n\r<td style=\"vertical-align:top; width:11.9375rem; background-color:#808080; padding:0.2500rem; border:solid thin #000000;\"><p style=\"line-height: 1.32; margin: 0.2500rem 0 0.2500rem 0;\">Label<\/p>\n\r<\/td>\n\r<td style=\"vertical-align:top; width:21.8750rem; background-color:#808080; padding:0.2500rem; border:solid thin #000000;\"><p style=\"line-height: 1.32; margin: 0.2500rem 0 0.2500rem 0;\">Details<\/p>\n\r<\/td>\n\r<\/tr>\n\r<tr>\n\r<td style=\"vertical-align:top; width:10.5000rem; padding:0.2500rem; border:solid thin #000000;\"><p style=\"line-height: 1.32; margin: 0 0 0 0;\">AXUDocParameters.PDEExtension<\/p>\n\r<\/td>\n\r<td style=\"vertical-align:top; width:11.9375rem; padding:0.2500rem; border:solid thin #000000;\"><p style=\"line-height: 1.32; margin: 0 0 0 0;\">Parameters<\/p>\n\r<\/td>\n\r<td style=\"vertical-align:top; width:21.8750rem; padding:0.2500rem; border:solid thin #000000;\"><p style=\"line-height: 1.32; margin: 0 0 0 0;\">Extension of the AXUDocParameters table. Required to support GRN<\/p>\n\r<\/td>\n\r<\/tr>\n\r<\/table>\n\r<\/div>\n\r"
+})
