@@ -425,7 +425,7 @@ hmDevice.pageStylesheet = "./css/hmprojectstyles.css";
 <p class="p_Normal">The report can be used to track interface statistics, reprocess messages or troubleshoot issues that occurred during the communication stage of interface processing.</p>
 <p class="p_Normal">&nbsp;</p>
 <p class="p_Normal">Integration jobs overview:</p>
-<div class="p_Normal"><img alt="clip0089" style="width:100%;max-width:1600px;height:auto;border:none" src="./images/clip0089.png"/></div>
+<p class="p_Normal"><img alt="clip-Marcin@DESKTOP-Q2CMVB8-0006" style="margin:0;width:64.3125rem;height:32.9375rem;border:none" src="./images/clip-marcin@desktop-q2cmvb8-0006.png"/></p>
 <p class="p_Normal">&nbsp;</p>
 <p class="p_Normal">1.Action pane buttons: </p>
 <p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Edit/Save: not used.</p>
@@ -434,12 +434,27 @@ hmDevice.pageStylesheet = "./css/hmprojectstyles.css";
 <p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Reset status: &nbsp;resets the status of a job to Pending. Reset is possible only for Asynchronous jobs.</p>
 <p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Process: processes the job manually. </p>
 <p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Import journal: opens Import journal entry for an Inbound job. The option is not available for Outbound jobs.</p>
-<p class="p_Normal">2. Filters: &nbsp;type the text to find and select one of the suggested columns to search through.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Show message: download the original message.</p>
+<p class="p_Normal">2. <span style="font-weight: bold;">Filters</span> </p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">Type the text to find and select one of the suggested columns to search through.</p>
 <p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- &nbsp;Show processed: displays successful jobs. By default, the list show only the jobs in status 'Error' or 'Pending'</p>
-<p class="p_Normal">3. Tab menus:</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Overview: list of Integration jobs.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- General: details of the selected job. Sample overview of job details:</p>
-<div class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;"><img alt="clip0090" style="width:100%;max-width:1410px;height:auto;border:none" src="./images/clip0090.png"/></div>
+<p class="p_Normal">3. <span style="font-weight: bold;">Integration jobs list</span></p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Job Id: a unique Id for a job created by the FlexxLink WebService. Click the Job Id to open the Job information. See below for details. </p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Event: name of the interface WebService.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Direction: direction of the message.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Company: Company ID in D365 F&amp;O where the Integration job has been created.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Status: status of the Integration job.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Communication type: type of communication performed by the interface. </p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Source: origin of the message logged in the Integration job entry.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Target: System where the message has been sent to. For inbound Integration jobs, it is 'D365FO'.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Data type: format of the message data.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Created date and time: date and time when the Integration job record has been created.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Processing started date and time: date and time when the document processing has been started.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Processing completed date and time: Date and time when the document processing has been completed.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Job details</span></p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- <span style="font-weight: bold;">Details</span>: </p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">Details of the selected job. Sample overview of job details:</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;"><img alt="clip-Marcin@DESKTOP-Q2CMVB8-0007" style="margin:0;width:69.4375rem;height:35.6875rem;border:none" src="./images/clip-marcin@desktop-q2cmvb8-0007.png"/></p>
 <p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">&nbsp;</p>
 <div style="text-align: left; text-indent: 0; line-height: 1.38; padding: 0 0 0 0; margin: 0.6250rem 0 0 0.8125rem;"><table style="border:solid 0.1250rem #808080; border-spacing:0; border-collapse:collapse;">
 <thead>
@@ -451,12 +466,6 @@ hmDevice.pageStylesheet = "./css/hmprojectstyles.css";
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">Record-ID</p>
-</td>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">Record ID of job entry in FlexxLink tables.</p>
-</td>
-</tr>
 <tr>
 <td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">Created date and time</p>
 </td>
@@ -595,21 +604,10 @@ hmDevice.pageStylesheet = "./css/hmprojectstyles.css";
 </table>
 </div>
 <p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">&nbsp;</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Contract: raw message data from the interface.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Logs: log entries of the message handling by the interface.</p>
-<p class="p_Normal">4. Integration jobs list:</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Job Id: a unique Id for a job created by the FlexxLink WebService.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Event: name of the interface WebService.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Direction: direction of the message.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Company: Company ID in D365 F&amp;O where the Integration job has been created.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Status: status of the Integration job.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Communication type: type of communication performed by the interface. </p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Source: origin of the message logged in the Integration job entry.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Target: System where the message has been sent to. For inbound Integration jobs, it is 'D365FO'.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Data type: format of the message data.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Created date and time: date and time when the Integration job record has been created.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Processing started date and time: date and time when the document processing has been started.</p>
-<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- Processing completed date and time: Date and time when the document processing has been completed.</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">- <span style="font-weight: bold;">Logs</span></p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">Log entries of the message handling by the interface. Sample log entry below:</p>
+<p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;"><img alt="clip-Marcin@DESKTOP-Q2CMVB8-0008" style="margin:0;width:69.9375rem;height:36.9375rem;border:none" src="./images/clip-marcin@desktop-q2cmvb8-0008.png"/></p>
+<p class="p_Normal">&nbsp;</p>
 <p class="p_Normal" style="margin: 0.6250rem 0 0 0.8125rem;">&nbsp;</p>
 
 	<footer class="topicfooter">
