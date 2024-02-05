@@ -2,7 +2,7 @@
 <html lang="de-de">
 	<head>
 	<!-- Help+Manual Premium Pack 5.0.3 (c) 2015-2023 by Tim Green. All rights reserved. -->
-	<title>Origin</title>
+	<title>Integration application</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" id="pageviewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes, minimal-ui" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -14,7 +14,7 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 	<meta name="generator" content="Help+Manual" />
 	<meta name="keywords" content="" />
-	<meta name="description" content="Set up of sources of inbound documents and assignation of validation profiles." />
+	<meta name="description" content="Integration applications represent a logical pooling of different interfaces.&nbsp;" />
 	<meta name="ZOOMIMAGE" content="./images/zoomimage.jpg" />
 	<meta name="author" content="Soluvine GmbH" />
 	<meta name="msapplication-tap-highlight" content="no" />
@@ -399,7 +399,7 @@ hmDevice.pageStylesheet = "./css/hmprojectstyles.css";
 		<td id="topicheadercell">
 		  <div id="topicheaderwrapper">
 		  <p id="ptopic_breadcrumbs" class="topic_breadcrumbs">Navigation: FlexxLink &gt; <a href="user-manual.html">User manual</a> &gt; Setup</p> 
-		  <h1 class="topictitle" title="Origin">Origin<h1>
+		  <h1 class="topictitle" title="Integration application">Integration application<h1>
 		  </div>
 		</td>
 		<td id="topicnavcell"><span>
@@ -421,51 +421,24 @@ hmDevice.pageStylesheet = "./css/hmprojectstyles.css";
 	<div id="hmpagebody">
 	<div id="hmpagebody_scroller">
 <!--ZOOMRESTART--> 
-	<p class="p_Normal">Set up of sources of inbound documents and assignation of validation profiles.</p>
-<p class="p_Normal">Each source of an inbound document handled by FlexxLink has to be defined in the Origin setup. Additionally, a validation profile can be assigned to an Origin entry. It will be applied to an inbound document unless another profile is selected on Integration party setup.</p>
+	<p class="p_Normal">Integration applications represent a logical pooling of different interfaces. </p>
+<p class="p_Normal">Integration applications may be of three different types:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.8125rem; margin-left: 0;"><span class="f_Normal" style="font-family: Arial,'Lucida Sans Unicode','Lucida Grande','Lucida Sans';display:inline-block;width:0.8125rem;margin-left:-0.8125rem">&#8226;</span>B2B - Application</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.8125rem; margin-left: 0;"><span class="f_Normal" style="font-family: Arial,'Lucida Sans Unicode','Lucida Grande','Lucida Sans';display:inline-block;width:0.8125rem;margin-left:-0.8125rem">&#8226;</span>Production - Application</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.8125rem; margin-left: 0;"><span class="f_Normal" style="font-family: Arial,'Lucida Sans Unicode','Lucida Grande','Lucida Sans';display:inline-block;width:0.8125rem;margin-left:-0.8125rem">&#8226;</span>Custom - Application</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Based on the type of application, different settings and parameters can be controlled:</p>
+<p class="p_Normal"><span style="font-weight: bold;">B2B - Application</span></p>
+<p class="p_Normal">On an application level, default validation profiles can be assigned for B2B inbound data validation. The selected validation profile is fetched based on the assignment of the integration application on integration party level.<br />
+The B2B application can be set to an active / inactive status - if a B2B-application is inactive, all integration parties using this application will be in an inactive state as well. </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Production /Custom - Application</span></p>
+<p class="p_Normal">On an application level, default validation profiles can be assigned for inbound data validation and inbound and outbound interfaces can be parametrized. <br />
+The application can be set to an active / inactive status - if an application is inactive, all assigned interfaces will be in an inactive state. <br />
+&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
 <p class="p_Normal">Sample setup:</p>
-<p class="p_Normal"><img alt="clip0072" style="margin:0;width:38.3125rem;height:13.1250rem;border:none" src="./images/clip0072.png"/></p>
-<p class="p_Normal">The following parameters need to be set up for a new entry:</p>
-<div style="text-align: left; text-indent: 0; line-height: 1.38; padding: 0 0 0 0; margin: 0.6250rem 0 0 0;"><table style="border:solid 0.1250rem #808080; border-spacing:0; border-collapse:collapse;">
-<thead>
-<tr>
-<th style="vertical-align:top; background-color:#808080; padding:0; border:solid thin #808080;"><p class="p_Normal"><span style="font-weight: bold; color: #ffffff;">Parameter name</span></p>
-</th>
-<th style="vertical-align:top; background-color:#808080; padding:0; border:solid thin #808080;"><p class="p_Normal"><span style="font-weight: bold; color: #ffffff;">Default value</span></p>
-</th>
-<th style="vertical-align:top; background-color:#808080; padding:0; border:solid thin #808080;"><p class="p_Normal"><span style="font-weight: bold; color: #ffffff;">Description</span></p>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal">Origin</p>
-</td>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal">none</p>
-</td>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal">Origin Id</p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal">Name</p>
-</td>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal">none</p>
-</td>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal">Name of the origin system. The value needs to match the REST API endpoint header value 'fromSystem'.</p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal">Validation profile Id</p>
-</td>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal">none</p>
-</td>
-<td style="vertical-align:top; padding:0; border:solid thin #808080;"><p class="p_Normal">Drop-down list.</p>
-<p class="p_Normal">Selection of configured validation profiles.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="p_Normal"><img alt="clip-LukasReiter@SLS-LUKAS-0002" style="width:80%;max-width:1613px;height:auto;border:none" src="./images/clip-lukasreiter@sls-lukas-0002.png"/></div>
 <p class="p_Normal">&nbsp;</p>
 
 	<footer class="topicfooter">
@@ -640,14 +613,14 @@ Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.
 			loadScripts(0);
 			
 			/* Title Bar Text */
-			var titleBarText = "Origin";
+			var titleBarText = "Integration application";
 			switch ("topic") {
 				case "project":
 				titleBarText = "FlexxWare Documentation";
 				break;
 				
 				case "project_topic":
-				titleBarText = "FlexxWare Documentation" + " \> " + "Origin"; 
+				titleBarText = "FlexxWare Documentation" + " \> " + "Integration application"; 
 				break;
 				}
 			titleBarText = $("<textarea/>").html(titleBarText).text();

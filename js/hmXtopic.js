@@ -6,7 +6,7 @@ hmProjectInfo = {
 	copyright: "(c) Soluvine GmbH",
 	summary: "&nbsp;",
 	version: "1.0.0",
-	date: "Montag, 7. August 2023",
+	date: "Montag, 5. Februar 2024",
 	language: "de-de",
 	mainfile: "index.html"
 	}
