@@ -2,7 +2,7 @@
 <html lang="de-de">
 	<head>
 	<!-- Help+Manual Premium Pack 5.0.3 (c) 2015-2023 by Tim Green. All rights reserved. -->
-	<title>Add with Cover sheet</title>
+	<title>Scan file</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" id="pageviewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes, minimal-ui" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -14,7 +14,7 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 	<meta name="generator" content="Help+Manual" />
 	<meta name="keywords" content="" />
-	<meta name="description" content="Next to adding a digital file by using the &quot;Add file&quot; functionality, the &quot;Cover sheet&quot; functionality enables the archiving of analog documents." />
+	<meta name="description" content="Next to adding a digital file by using the &quot;Add file&quot; functionality, the &quot;Scan file&quot; functionality enables the archiving of analog documents." />
 	<meta name="ZOOMIMAGE" content="./images/zoomimage.jpg" />
 	<meta name="author" content="Soluvine GmbH" />
 	<meta name="msapplication-tap-highlight" content="no" />
@@ -399,7 +399,7 @@ hmDevice.pageStylesheet = "./css/hmprojectstyles.css";
 		<td id="topicheadercell">
 		  <div id="topicheaderwrapper">
 		  <p id="ptopic_breadcrumbs" class="topic_breadcrumbs">Navigation: FlexxStore &gt; <a href="lasernet-document-archive-over.html">User Manual</a> &gt; <a href="external-documents.html">External documents</a></p> 
-		  <h1 class="topictitle" title="Add with Cover sheet">Add with Cover sheet<h1>
+		  <h1 class="topictitle" title="Scan file">Scan file<h1>
 		  </div>
 		</td>
 		<td id="topicnavcell"><span>
@@ -421,13 +421,18 @@ hmDevice.pageStylesheet = "./css/hmprojectstyles.css";
 	<div id="hmpagebody">
 	<div id="hmpagebody_scroller">
 <!--ZOOMRESTART--> 
-	<p class="p_Normal"><span style="font-weight: bold;">Next to adding a digital file by using the &quot;Add file&quot; functionality, the &quot;Cover sheet&quot; functionality enables the archiving of analog documents.</span></p>
+	<p class="p_Normal"><span style="font-weight: bold;">Next to adding a digital file by using the &quot;Add file&quot; functionality, the &quot;Scan file&quot; functionality enables the archiving of analog documents.</span></p>
 <h2 class="p_Heading2"><span class="f_Heading2">&nbsp;</span></h2>
 <h2 class="p_Heading2"><span class="f_Heading2">General remarks</span></h2>
-<p class="p_Normal">Using a document scanner and a printed cover sheet, external analog documents can be added to the archive via Dynamics 365. In addition, the archived documents are connected to a D365 business case just like any other external document. </p>
-<h2 class="p_Heading2"><span class="f_Heading2">&nbsp;</span></h2>
-<h2 class="p_Heading2"><span class="f_Heading2">Cover sheet data</span></h2>
-<p class="p_Normal">Cover sheet is the specific document also stored in the document archive, that holds references and Archive (cover sheet) Id representing them. </p>
+<p class="p_Normal">Using a document scanner, external analog documents can be added to the archive via Dynamics 365. <br />
+In addition, the archived documents are connected to a Dynamics 365 business case just like any other external document. </p>
+<h3 class="p_Heading3"><span class="f_Heading3">Coversheet </span></h3>
+<p class="p_Normal">To scan a document, a coversheet can be printed via Dynamics 365. Using this printed coversheet as the first page on your scan, the subsequent pages are stored using FlexxStore.</p>
+<h3 class="p_Heading3"><span class="f_Heading3">Predefined bar code</span></h3>
+<p class="p_Normal">If bar codes are available, the bar code number can be entered to Dynamics 365 in order to reference the subsequently scanned document with the business logic in Dynamics 365 Finance &amp; SCM. </p>
+<p class="p_Normal">&nbsp;</p>
+<h2 class="p_Heading2"><span class="f_Heading2">Scan file meta data</span></h2>
+<p class="p_Normal">Meta data can be provided when scanning a file to the document archive. This includes but is not limited to the following data: </p>
 <p class="p_Normal" style="text-indent: 0; padding-left: 0.8125rem; margin-left: 0;"><span class="f_Normal" style="font-family: Arial,'Lucida Sans Unicode','Lucida Grande','Lucida Sans';display:inline-block;width:0.8125rem;margin-left:-0.8125rem">&#8226;</span>Account</p>
 <p class="p_Normal" style="text-indent: 0; padding-left: 0.8125rem; margin-left: 0;"><span class="f_Normal" style="font-family: Arial,'Lucida Sans Unicode','Lucida Grande','Lucida Sans';display:inline-block;width:0.8125rem;margin-left:-0.8125rem">&#8226;</span>Order</p>
 <p class="p_Normal" style="text-indent: 0; padding-left: 0.8125rem; margin-left: 0;"><span class="f_Normal" style="font-family: Arial,'Lucida Sans Unicode','Lucida Grande','Lucida Sans';display:inline-block;width:0.8125rem;margin-left:-0.8125rem">&#8226;</span>Batch number</p>
@@ -441,9 +446,10 @@ hmDevice.pageStylesheet = "./css/hmprojectstyles.css";
 <p class="p_Normal" style="text-indent: 0; padding-left: 0.8125rem; margin-left: 0;"><span class="f_Normal" style="font-family: Arial,'Lucida Sans Unicode','Lucida Grande','Lucida Sans';display:inline-block;width:0.8125rem;margin-left:-0.8125rem">&#8226;</span>Sales orders (Accounts receivable &gt; Orders &gt; All sales orders)</p>
 <p class="p_Normal" style="text-indent: 0; padding-left: 0.8125rem; margin-left: 0;"><span class="f_Normal" style="font-family: Arial,'Lucida Sans Unicode','Lucida Grande','Lucida Sans';display:inline-block;width:0.8125rem;margin-left:-0.8125rem">&#8226;</span>Sales agreements (Accounts receivable &gt; Orders &gt; Sales agreements)</p>
 <h2 class="p_Heading2"><span class="f_Heading2">&nbsp;</span></h2>
-<h2 class="p_Heading2"><span class="f_Heading2">Cover sheet functionality</span></h2>
-<p class="p_Normal">Cover sheet print side page already contains data from the active record in D365 F&amp;O for which the attachment should be added.</p>
-<p class="p_Normal"><img alt="clip1119" style="margin:0;width:63.0000rem;height:33.3125rem;border:none" src="./images/clip1119.png"/></p>
+<h2 class="p_Heading2"><span class="f_Heading2">Coversheet functionality</span></h2>
+<p class="p_Normal">The coversheet print side page already contains data from the active record in Dynamics 365 Finance &amp; SCM for which the attachment should be added.</p>
+<div class="p_Normal"><img alt="clip-LukasReiter@SLS-LUKAS-0001_cs" style="width:60%;max-width:1777px;height:auto;border:none" src="./images/clip-lukasreiter@sls-lukas-0001_cs.png"/></div>
+<p class="p_Normal">&nbsp;</p>
 <p class="p_Normal">&nbsp;</p>
 <p class="p_Normal">&nbsp;</p>
 <p class="p_Normal">Cover sheet print version contains a bar code with Archive (cover sheet) ID.</p>
@@ -630,14 +636,14 @@ Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.
 			loadScripts(0);
 			
 			/* Title Bar Text */
-			var titleBarText = "Add with Cover sheet";
+			var titleBarText = "Scan file";
 			switch ("topic") {
 				case "project":
 				titleBarText = "FlexxWare Documentation";
 				break;
 				
 				case "project_topic":
-				titleBarText = "FlexxWare Documentation" + " \> " + "Add with Cover sheet"; 
+				titleBarText = "FlexxWare Documentation" + " \> " + "Scan file"; 
 				break;
 				}
 			titleBarText = $("<textarea/>").html(titleBarText).text();
