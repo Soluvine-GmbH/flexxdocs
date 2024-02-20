@@ -53,6 +53,7 @@ pageinfo = [[1687444148,0,0,0,null],
 	[1708422080,0,0,0,null],
 	[1708423598,0,0,0,null],
 	[1680771118,0,0,0,null],
+	[1708425016,0,0,0,null],
 	[1680687872,0,0,0,null],
 	[1681374434,0,0,0,null],
 	[1677569068,0,0,0,null],
@@ -164,8 +165,7 @@ pageinfo = [[1687444148,0,0,0,null],
 	[1680688482,0,0,0,null],
 	[1677569068,0,0,0,null],
 	[1681397862,0,0,0,null],
-	[1683116892,0,0,0,null],
-	[1690988178,0,0,0,null]];
+	[1683116892,0,0,0,null]];
 pagedata = [ ["./add-file.html","Add file","External documents can be manually added from predefined locations in Dynamics 365 Finance &#38; SCM.","./images/zoomimage.jpg"],
 ["./add-with-cover-sheet.html","Scan file","Next to adding a digital file by using the \"Add file\" functionality, the \"Scan file\" functionality enables the archiving of an...","./images/zoomimage.jpg"],
 ["./archive-viewer.html","Document Viewer","The document viewer acts as the central place to view files archived via Dynamics 365 Finance &#38; SCM.","./images/zoomimage.jpg"],
@@ -221,6 +221,7 @@ pagedata = [ ["./add-file.html","Add file","External documents can be manually a
 ["./external-documents.html","External documents","External documents can be uploaded via FlexxStore in Dynamics 365 Finance &#38; SCM. Once uploaded, documents are stored in the document store and...","./images/zoomimage.jpg"],
 ["./external-documents2.html","External documents","External document types can be predefined in order to ensure a better structure in the archive viewer. ","./images/zoomimage.jpg"],
 ["./flexxlink-2012.html","FlexxLink 2012","Enter topic text here.","./images/zoomimage.jpg"],
+["./flexxstore-overview.html","User Manual","Welcome to the user manual for FlexxStore!  The FlexxStore ECM client is used to connect different third-party DMS, ECM and archiving solutio...","./images/zoomimage.jpg"],
 ["./flexxware-documentation.html","FlexxWare Documentation","Welcome to the Documentation for FlexxWare!  FlexxLink  FlexxStore  Flexx Framework","./images/zoomimage.jpg"],
 ["./forms.html","Forms","Enter topic text here.","./images/zoomimage.jpg"],
 ["./fxlimportinterface.html","FXLImportInterface","&#169; Soluvine GmbH Keyboard Navigation F7 for caret browsing Hold ALT and press letter This Info: ALT+q Page Header: ALT+h Topic Header: ALT+t Topic ...","./images/zoomimage.jpg"],
@@ -332,5 +333,4 @@ pagedata = [ ["./add-file.html","Add file","External documents can be manually a
 ["./sub-chapter-2_1.html","Sub chapter 2.1","Enter topic text here.","./images/zoomimage.jpg"],
 ["./tables.html","Tables","Name Developer description FXLCustCollectionLine The FXLCustCollectionLine table contains imported line data for collection interface. FXLCustColl...","./images/zoomimage.jpg"],
 ["./terms-of-use.html","Terms of use","No part of this publication may be reproduced, transmitted, transcribed, or translated into any language in any form by any means without the prio...","./images/zoomimage.jpg"],
-["./user-manual.html","User manual","Welcome to the user manual for FlexxLink! FlexxLink is a complete Dynamics 365 Finance and Supply Chain Management (Finance/SCM, formerly known as...","./images/zoomimage.jpg"],
-["./validaiton-journal.html","Validation journal","The validation journal for invoice processing is a dedicated job view that allows to review, edit and validate a document and uses Purchase order ...","./images/zoomimage.jpg"]];
+["./user-manual.html","User manual","Welcome to the user manual for FlexxLink! FlexxLink is a complete Dynamics 365 Finance and Supply Chain Management (Finance/SCM, formerly known as...","./images/zoomimage.jpg"]];
