@@ -42,14 +42,22 @@ var HMImageToggle = function($img){
 		// Close image toggle
 		function unClicker (elem) {
 			
-			
+			<IF_VAR[IMGTOGGLE_CLOSEMODE=clickoutside]>
+			// Click outside element
+			$(document).on((typeof hmBrowser == "undefined" ? "click" : hmBrowser.touchstart) + '.closemenu', function(event){
+				if (!elem.contains(event.target)) {
+					closeImage();
+					$(document).off(".closemenu");
+					$(elem).off(".closemenu");
+				}
+			});</IF_VAR[IMGTOGGLE_CLOSEMODE=clickoutside]><IFNOT_VAR[IMGTOGGLE_CLOSEMODE=clickoutside]>
 			// Click inside element
 			$(elem).on((typeof hmBrowser == "undefined" ? "click" : hmBrowser.touchstart) + '.closemenu', function(){
 				closeImage();
 				$(document).off(".closemenu");
 				$(elem).off(".closemenu");
 			});
-			
+			</IFNOT_VAR[IMGTOGGLE_CLOSEMODE=clickoutside]>
 			
 			// ESC key
 			$(document).on("keydown.closemenu", function(event){
@@ -118,7 +126,7 @@ var HMImageToggle = function($img){
 			$imgbox.append(newImage);
 			$imgbox.append('<div id="imagezoom"><img id="imagezoomer" src="./images/ZoomIn.png" border="0"/></div>');
 
-			unClicker(newImage);
+			<IF_VAR[IMGTOGGLE_CLOSEMODE=clickoutside]>unClicker($imgbox[0]);</IF_VAR[IMGTOGGLE_CLOSEMODE=clickoutside]><IFNOT_VAR[IMGTOGGLE_CLOSEMODE=clickoutside]>unClicker(newImage);</IFNOT_VAR[IMGTOGGLE_CLOSEMODE=clickoutside]>
 
 			$imgbox.css({"left": startLeft + "px", "top": startTop + "px", "width": closeddims.w + "px", "height": closeddims.h + "px"});
 			$imgbox.show();	

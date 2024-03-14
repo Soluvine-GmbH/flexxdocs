@@ -27,8 +27,8 @@ Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.
 		
 		defaultState: jQuery("div#helpwrapper").is(":visible"),
 		hmPopupPath: "",
-		hmAllowedDomains: "",
-		hmDefaultTopic: "index.html",
+		hmAllowedDomains: "<%EMBEDDED_DOMAINS%>",
+		hmDefaultTopic: "<%HREF_TOP_PAGE%>",
 		hmDefaultCallback: undefined,
 		localdomain: document.location.protocol + "\/\/" + document.location.hostname,
 		targetdomain: "",
@@ -38,7 +38,7 @@ Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.
 		currentHelpPage: "",
 		topicChanged: false,
 		zoomOpening: false,
-		embeddedBorder: true,
+		embeddedBorder: <%OPT_EMBEDDED_BORDER%>,
 
 		//File exists check for local projects
 		FileExists: function(url) {
@@ -127,9 +127,9 @@ Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.
 			hmHelpVars.$pageLinks = jQuery(".hmHelpToggle");
 			 
 			if (hmHelpVars.hmHelpOpen()) {
-				hmHelpVars.$pageLinks.html("Hide Embedded Help");
+				hmHelpVars.$pageLinks.html("<%EMBEDDED_HIDEHELP%>");
 			} else {
-				hmHelpVars.$pageLinks.html("Show Embedded Help");
+				hmHelpVars.$pageLinks.html("<%EMBEDDED_SHOWHELP%>");
 			}
 		},
 
@@ -427,7 +427,7 @@ Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.
 		function manageEmbedBorders() {
 			var toWide = false,
 				toNarrow = false,
-				activeBorderWidth = "thin";
+				activeBorderWidth = "<%OUTER_BORDERS_WIDTH%>";
 			function doBorders() {
 				var viewportWidth = jQuery("div#helpwrapper").width();
 					
@@ -469,11 +469,12 @@ Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.
 			jQuery("html").css("overflow",FWcurrentOverflowH);
 			FWfullwindow = false;
 			
-			if (!true) {
+			if (!<%OPT_EMBEDDED_HIDEHEADER%>) {
 			xMessage.sendObject("hmhelp",{action: "callfunction", fn: "hmWebHelp.openHeaderIfClosed", domain: hmDevice.targetDomain}); 
 			} else {
 			xMessage.sendObject("hmhelp",{action: "callfunction", fn: "hmWebHelp.closeHeaderIfOpen", domain: hmDevice.targetDomain});
-			}
+			}<IFNOT_VAR[EMBEDDED_ZOOMHIDE=none]>			
+			jQuery("<%EMBEDDED_ZOOMHIDE%>").show();</IFNOT_VAR[EMBEDDED_ZOOMHIDE=none]>
 			xMessage.sendObject("hmhelp",{action: "callfunction", fn: "hmWebHelp.embedBorderSwitch", fa: ["zoomin", jQuery(window).width()], domain: hmDevice.targetDomain});
 			
 			setTimeout(
@@ -487,7 +488,7 @@ Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.
 			FWcurrentFrameCSS = jQuery("iframe#hmhelp").attr("style");
 			jQuery("body,html").css("overflow", "hidden");
 			
-			jQuery("div#helpwrapper").attr("style","display: block; position: fixed; float: none; border-radius: 0; border: none; left: 50%; transform: translateX(-50%); max-height: 100%; max-width: 1024px;");
+			jQuery("div#helpwrapper").attr("style","display: block; position: fixed; float: none; border-radius: 0; border: none; left: 50%; transform: translateX(-50%); max-height: 100%; max-width: <%EMBEDDED_MAXZOOM%>;");
 
 			xMessage.sendObject("hmhelp",{action: "callfunction", fn: "hmWebHelp.embedBorderSwitch", fa: ["zoomout", jQuery(window).width()], domain: hmDevice.targetDomain});
 
@@ -497,7 +498,7 @@ Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.
 				top: "0",
 				bottom: "0"
 			}, 400, function(){
-				var finalCSS = {}, targetCSS, sourceCSS = "top: -1em; bottom: 0;".split(";");
+				var finalCSS = {}, targetCSS, sourceCSS = "<%EMBEDDED_ZOOM_POSITION%>".split(";");
 				for (var x=0; x < sourceCSS.length-1; x++) {
 					targetCSS = sourceCSS[x].split(":");
 					if (targetCSS.length == 2) {
@@ -514,7 +515,8 @@ Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.
 					this.showHelp();
 					}
 			});
-
+<IFNOT_VAR[EMBEDDED_ZOOMHIDE=none]>
+			jQuery("<%EMBEDDED_ZOOMHIDE%>").hide();</IFNOT_VAR[EMBEDDED_ZOOMHIDE=none]>
 			jQuery("iframe#hmhelp").attr("style","");
 			
 			} 

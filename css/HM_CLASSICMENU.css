@@ -3,7 +3,7 @@
 /* Universal components */
 
 nav#header_menu {
-	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-family: <%UIFONT%>;
 	}
 
 /* Phone Version */
@@ -22,15 +22,15 @@ p.menu-header, p.menu-description, div.menu-image-box, ul.topnav br, ul.topnav s
 	width: 1.2rem !important;
     height: 1.2rem !important;
     margin: 0 0 -0.2rem 0.4rem !important;
-    color: #444444;
-    fill: #444444;
+    color: <%NAVLINKS_COLOR_PHONE%>;
+    fill: <%NAVLINKS_COLOR_PHONE%>;
 	}
 	
 	nav#header_menu {
 	position: fixed;
 	display: none;
 	top: 7rem; 
-	font-size: calc(0.832rem * 1.2);
+	font-size: calc(<%DROPMENU_FONTSIZE%>rem * 1.2);
 	z-index: 1000;
 	width: 100%;
 	}
@@ -43,8 +43,8 @@ p.menu-header, p.menu-description, div.menu-image-box, ul.topnav br, ul.topnav s
 	margin: 0 auto;
 	min-width: 200px;
 	max-width: 200px;
-	background-color: #f0f0f0;
-	box-shadow: 2px 2px 3px #959595;
+	background-color: <%DROPMENU_BGCOLOR%>;
+	box-shadow: 2px 2px 3px <%SHADOW_COLOR%>;
 	border-radius: 3px;
 	}
 ul.topnav li {
@@ -75,7 +75,7 @@ ul.topnav li.last {
 	}
 ul.topnav li a {
 	text-decoration: none;
-	color: #898989;
+	color: <%DROPMENU_COLOR%>;
 	padding: 0.300rem 0.325rem;
 	display: block;
 	cursor: pointer;
@@ -84,7 +84,7 @@ ul.topnav li ul.subnav li a::before {
 	content: " - ";
 	}	
 ul.topnav li a:visited, ul.subnav li a:visited {
-	color: #898989;
+	color: <%DROPMENU_COLOR%>;
 	}
 ul.topnav li span.subhover {
 	background-position: center bottom;
@@ -102,7 +102,7 @@ div.blockmenu a.icon, div.fullmenu a.icon {
 ul.topnav li ul.subnav {
 	display: none;
 	list-style: none;
-	background-color: #f0f0f0;
+	background-color: <%DROPMENU_BGCOLOR%>;
 	}
 ul.topnav li ul.subnav li {
 	margin: 0; padding: 0;
@@ -126,9 +126,9 @@ a#phonemenulink {
 }
 /* Company Logo */
 div#homebutton {
-  width: 167px;
-  height: 40px;
-  float: left;
+  width: <%HEADERLOGO_WIDTH%>px;
+  height: <%HEADERLOGO_HEIGHT%>px;
+  float: <%HEADERLOGO_POSITION%>;
   position: relative;
   z-index: 903;
 }
@@ -136,7 +136,7 @@ div#homebutton a {
   display: block;
   width: 100%;
   height: 100%;
-  background:url(../images/Soluvine_Blau_167.png) left top no-repeat;
+  background:url(../images/<%HEADERLOGO%>) <%HEADERLOGO_POSITION%> top no-repeat;
   text-decoration: none;
 }
 /* Container for user dropdown menus */
@@ -144,10 +144,10 @@ nav#header_menu {
 	position: absolute;
 	top: 0; right: 0; bottom: 0; left: 0;
 	overflow: visible;
-	font-size: 0.832rem;
+	font-size: <%DROPMENU_TOPFONTSIZE%>rem;
 	padding: 0 1rem;
-	background-image: url('../images/');
-	background-color: #ffffff;
+	background-image: url('../images/<%HEADER_BGIMAGE%>');
+	background-color: <%HEADER_BGCOLOR%>;
 	background-position: 0 0;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -159,7 +159,7 @@ ul.topnav {
 	display: block;
 	clear: both;
 	left: 0; right: 0; bottom: 0;
-	text-align: right;
+	text-align: <IF_VAR[HEADERLOGO_POSITION=left]>right</IF_VAR[HEADERLOGO_POSITION=left]><IF_VAR[HEADERLOGO_POSITION=right]>left</IF_VAR[HEADERLOGO_POSITION=right]>;
 	list-style: none;
 	white-space: nowrap;
 	background-color: transparent;
@@ -173,17 +173,18 @@ ul.topnav li {
 	text-align: left;
 }
 ul.topnav > span {
-	background-color: #ffffffa6;
+	background-color: <%TOPMENU_BGCOLOR%>;
 	display: inline-block;
 	height: 100%;
 	width: auto;
-	border-radius: 5px 0 0 0;
-	box-shadow: -2px -2px 5px 0px rgba(0,0,0,0.2);;
+	<IF_VAR[HEADERLOGO_POSITION=left]>border-radius: 5px 0 0 0;
+	box-shadow: -2px -2px 5px 0px rgba(0,0,0,0.2);</IF_VAR[HEADERLOGO_POSITION=left]><IF_VAR[HEADERLOGO_POSITION=right]>border-radius: 0 5px 0 0;
+	box-shadow: 2px -2px 3px 0px rgba(0,0,0,0.2);</IF_VAR[HEADERLOGO_POSITION=right]>;
 	
 	}
 ul.topnav > span > li {
 	display: inline-block;
-	height: 1.2rem;
+	height: <%DROPMENU_HEIGHT%>rem;
 	width: auto;
 	margin-right: -3px;
 	padding-right: 5px;
@@ -192,14 +193,14 @@ ul.topnav li.header svg.submenu_icon {
 	display: inline-block;
 	width: 0.5rem;
 	height: 0.5rem;
-	fill: #444444;
+	fill: <%TOPMENU_COLOR%>;
 	margin-bottom: 0.065rem;
 	}
 ul.topnav li.headerlink svg.submenu_icon {
 	display: inline-block;
 	width: 1.3rem;
 	height: 1.3rem;
-	fill: #444444;
+	fill: <%TOPMENU_COLOR%>;
 	margin-left: 0.5rem;
 	margin-bottom: -0.45rem;
 	}
@@ -210,15 +211,15 @@ ul.topnav > span > li > a {
 	}
 ul.topnav li a {
 	text-decoration: none;
-	color: #444444;
+	color: <%TOPMENU_COLOR%>;
 	display: block;
 	cursor: pointer;
 	}
 ul.topnav li a:visited, ul.subnav li a:visited {
-	color: #444444;
+	color: <%TOPMENU_COLOR%>;
 	}
 ul.topnav > span > li > a:hover span, ul.topnav > span > li > a.current span {
-	color: #000000;
+	color: <%TOPMENU_ACTIVECOLOR%>;
 	text-decoration: underline;
 	}
 	
@@ -227,8 +228,8 @@ ul.subnav {
 	display: none;
 	text-align: center;
 	list-style: none;
-	font-size: 1rem;
-	color: #cfd7d9;
+	font-size: <%DROPMENU_WIDE_FONTSIZE%>rem;
+	color: <%DROPBANNER_COLOR%>;
 	position: absolute;
     left: 0;
 	right: 0;
@@ -242,8 +243,8 @@ div.subnav-menu {
 	border: none;
 	margin: 0 auto;
 	max-width: 100%;
-	box-shadow: 3px 3px 5px #959595;
-	background-color: rgba(207,215,217,0.7);
+	box-shadow: 3px 3px 5px <%SHADOW_COLOR%>;
+	background-color: <%DROPBANNER_BGCOLOR%>;
 }
 div.blockmenu {
 	display: inline-block;
@@ -260,7 +261,7 @@ div.blockmenu.image {
 	vertical-align: top;
 }
 p.menu-header {
-	color: #cfd7d9;
+	color: <%DROPBANNER_COLOR%>;
 	font-weight: 600;
 	font-size: 1rem;
 	margin: 0 0 0.2rem 0;
@@ -288,7 +289,7 @@ p.menu-description {
 	padding: 0;
 	line-height: 110%;
 	vertical-align: top;
-	color: #cfd7d9;
+	color: <%DROPBANNER_COLOR%>;
 }
 ul.subnav div.fullmenu {
 	width: 100%;
@@ -304,10 +305,10 @@ ul.subnav div.fullmenu li {
 }
 
 .right-divider {
-	border-right: 2px solid #888888;
+	border-right: 2px solid <%INNER_BORDERCOLOR%>;
 }
 .left-divider {
-	border-left: 2px solid #888888;
+	border-left: 2px solid <%INNER_BORDERCOLOR%>;
 }
 
 ul.topnav ul.subnav li {
@@ -322,7 +323,7 @@ ul.topnav ul.subnav li a {
 	width: auto;
 	height: 100%;
 	cursor: pointer;
-	color: #cfd7d9;
+	color: <%DROPBANNER_COLOR%>;
 	background-image: none;
 	}
 ul.topnav ul.subnav li a.icon {
@@ -332,10 +333,10 @@ ul.topnav ul.subnav li a.icon {
 	padding-left: 1.3rem;
 	}
 ul.topnav ul.subnav li a:hover {
-	color: #213859;
+	color: <%DROPBANNER_HOVERCOLOR%>;
 	}
 ul.topnav ul.subnav li a:visited {
-	color: #cfd7d9;
+	color: <%DROPBANNER_COLOR%>;
 	}
 ul.topnav ul.subnav li:last a {
 	} 

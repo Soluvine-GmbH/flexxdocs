@@ -6,13 +6,13 @@ function hmatoc() {
 	// General variables
 	var 
 		self = this,
-		atoc_tip = "Jump to:&nbsp;",
-		atoc_minHeaders = parseInt("3",10),
-		atoc_btntip_off = "No contents for this topic",
-		atoc_btntip_on = "Contents of this topic",
-		atoc_toptip = "Jump to top of page",
-		atoc_top = "Scroll to Top of Page",
-		atoc_linklimit = parseInt("45",10),
+		atoc_tip = "<%ATOC_TIP%>",
+		atoc_minHeaders = parseInt("<%ATOC_MINHEADERS%>",10),
+		atoc_btntip_off = "<%ATOC_BTNTIP_OFF%>",
+		atoc_btntip_on = "<%ATOC_BTNTIP_ON%>",
+		atoc_toptip = "<%ATOC_TOPTIP%>",
+		atoc_top = "<%ATOC_TOP%>",
+		atoc_linklimit = parseInt("<%ATOC_LINKLIMIT%>",10),
 		thisAtoc = "empty",
 		isATOC = false;
 

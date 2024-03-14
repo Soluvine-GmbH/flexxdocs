@@ -137,18 +137,18 @@ var hmpage = {
 			);},
 		headerclosedonopen: (function(){
 			var storedHeaderState = sessionVariable.getSV("headerState");
-			return (false || (storedHeaderState !== null && storedHeaderState === "closed"))})(),
+			return (<%OPT_PAGEHEAD_CLOSED%> || (storedHeaderState !== null && storedHeaderState === "closed"))})(),
 		headerclosed: !!(this.headerclosedonopen || $("div#headerbox").is(":hidden")),
 		tocclosedonopen: (function(){
 			var storedTocState = sessionVariable.getSV("tocState");
-			if ((!true && hmDevice.desktop) || (!true && !hmDevice.desktop))
+			if ((!<%DESK_TOCAUTOHIDE%> && hmDevice.desktop) || (!<%MOBILE_TOCAUTOHIDE%> && !hmDevice.desktop))
 				return((storedTocState !== null && storedTocState === "closed"));
 			else
 				return true;
 		})(),
 		breadcrumbs: true,
 		parenthome: false,
-		defaulttopic: "index.html",
+		defaulttopic: "<%HREF_DEFAULT_PAGE%>",
 		shortpageX: false,
 		Fshortpage: function() {
 			return (
@@ -158,7 +158,7 @@ var hmpage = {
 			},
 		navShadowOn: false,
 		initialized: false,
-		projectBaseFontRel: "100",
+		projectBaseFontRel: "<%HMFONTSIZEBASE%>",
 		projectStoredFont: function(){
 			var testVal = sessionVariable.getPV("fontSize");
 			if (testVal !== null)
@@ -174,7 +174,7 @@ var hmpage = {
 		Fem2pix: function(em) {return (em * this.FbaseFontSize());},
 		anchorX: hmBrowser.server ? "\?anchor\=" : "\!anchor\=",
 		anchorY: hmBrowser.server ? "\?" : "\!",
-		embeddedBorder: true
+		embeddedBorder: <%OPT_EMBEDDED_BORDER%>
 	};
 // Check for correct encoding in author's project
 if (/%|pt|px/i.test(hmpage.projectBaseFontRel)) {
@@ -202,12 +202,12 @@ hmWebHelp.trimString = function(str){
 	// Header closer and opener for calling to embedded help
 hmWebHelp.closeHeaderIfOpen = function() {
 	if ($("div#headerbox").is(":visible")) {
-		hmWebHelp.pageDimensions.pageHeaderUpDown(false);
+		hmWebHelp.pageDimensions.pageHeaderUpDown(<%OPT_NOHEADERCONTROLS%>);
 		}
 	};
 hmWebHelp.openHeaderIfClosed = function() {
 	if ($("div#headerbox").is(":hidden")) {
-		hmWebHelp.pageDimensions.pageHeaderUpDown(false);
+		hmWebHelp.pageDimensions.pageHeaderUpDown(<%OPT_NOHEADERCONTROLS%>);
 		}
 	};
 
@@ -343,12 +343,12 @@ hmWebHelp.pageFocus = function(mode) {
 }; // pageFocus
 
 hmWebHelp.embedBorderSwitch = function(mode, winWidth) {
-	var borderWidth = "thin";
+	var borderWidth = "<%OUTER_BORDERS_WIDTH%>";
 	
 	if (["zoomin", "zoomout"].includes(mode)) {
 		if (mode == "zoomout") {
 			if (!hmpage.embeddedBorder) {
-				$("div#helpwrapper").css("border", borderWidth + " solid #888888");
+				$("div#helpwrapper").css("border", borderWidth + " solid <%PAGE_BORDERCOLOR%>");
 				} 
 			$("div#helpwrapper").css("border-width", "0 " + borderWidth + " 0 " + borderWidth);
 			
@@ -400,7 +400,25 @@ jQuery.cachedScript = function( url, options ) {
     url: url
   });
   return jQuery.ajax( options );
-};
+};<IF_GA4ACCOUNT>
+
+// Topic tracking function
+var HMTrackTopiclink = function(obj) {
+
+	if (hmBrowser.server && gaaccount !== "") {
+		
+		switch (obj.className) {
+			
+			case "filelink":
+			hmWebHelp.track("file", obj.href);
+			break;
+			
+			case "weblink":
+			hmWebHelp.track("web", obj.href);
+			break;
+			}		   
+		}
+};</IF_GA4ACCOUNT>
 
 // Handler for post-loading functions from files
 hmWebHelp.extFuncs = function(func, args) {	
@@ -518,11 +536,11 @@ hmWebHelp.tocNav = new function() {
 	
 	// Update breadcrumbs
 	var dobread = function(args) {
-			var bakedbread = "Navigation: ",
+			var bakedbread = "<%BREAD_LABEL%> ",
 				tempslice = [],
 				stop = "",
-				nobread = " \<span\>&raquo; No topics above this level &laquo;\<\/span\>",
-				notoc = " \<span\>&raquo; No TOC entry for this topic &laquo;\<\/span\>";
+				nobread = " \<span\>&raquo; <%BREAD_NOTOPIC%> &laquo;\<\/span\>",
+				notoc = " \<span\>&raquo; <%BREAD_NOTOCENTRY%> &laquo;\<\/span\>";
 		
 			if (args.breadmode == "full") {
 			for (var x in args) {
@@ -574,7 +592,90 @@ hmWebHelp.tocNav = new function() {
 		break;
 		}
 	};
-	}();
+	}();<IF_GA4ACCOUNT>
+
+hmWebHelp.track = function(action, data) {
+	
+	// Quit if GA is disabled
+	if (!hmDevice.GAactive) return;
+
+	switch(action) {
+		
+		case "search":
+		gtag('event', action, {
+		'event_category': 'engagement',
+		'event_label': "<%GA_SEARCHLABEL%>",
+		'value': decodeURIComponent(data)
+		});
+		break;
+		
+		case "search_click":
+		gtag('event', action, {
+		'event_category': 'engagement',
+		'event_label': "<%GA_SEARCHCLICKLABEL%>",
+		'value': decodeURIComponent(data)
+		});
+		break;
+		
+		case "index":
+		gtag('event', action, {
+		'event_category': 'engagement',
+		'event_label': "<%GA_INDEXLABEL%>",
+		'value': decodeURIComponent(data)
+		});
+		break;
+		
+		case "index_click":
+		gtag('event', action, {
+		'event_category': 'engagement',
+		'event_label': "<%GA_INDEXCLICKLABEL%>",
+		'value': decodeURIComponent(data)
+		});
+		break;
+		
+		case "topic":
+		gtag('event', action, {
+		'event_category': 'engagement',
+		'event_label': "<%GA_TOPICLINKLABEL%>",
+		'value': decodeURIComponent(data)
+		});
+		break;
+		
+		case "file":
+		gtag('event', action, {
+		'event_category': 'engagement',
+		'event_label': "<%GA_FILELABEL%>",
+		'value': decodeURIComponent(data)
+		});
+		break;
+		
+		case "web":
+		gtag('event', action, {
+		'event_category': 'engagement',
+		'event_label': "<%GA_WEBLABEL%>",
+		'value': decodeURIComponent(data)
+		});
+		break;
+		
+		case "toc_web":
+		alert("tracking toc web link: " + decodeURIComponent(data))
+		gtag('event', action, {
+		'event_category': 'engagement',
+		'event_label': "<%GA_TOCWEBLABEL%>",
+		'value': decodeURIComponent(data)
+		});
+		break;
+		
+		case "toc_click":
+		gtag('event', action, {
+		'event_category': 'engagement',
+		'event_label': "<%GA_TOCCLICKLABEL%>",
+		'value': decodeURIComponent(data)
+		});
+		
+		
+	}
+}; // hmWebHelp.track </IF_GA4ACCOUNT>
 
 // Close all drop-down menus before continuing with something else
 hmWebHelp.closeMenus = function() {
@@ -634,7 +735,7 @@ hmWebHelp.hmTopicPageInit = function() {
 	hmpage.$scrollContainer = $("div#hmpagebody");
 	
 	// Display atoc scroll menu on pages with atoc links
-	if (true && $("span[class*='_atoc']").length >= parseInt("3",10) && !hmDevice.phone) {
+	if (<%OPT_ATOC_SHOW%> && $("span[class*='_atoc']").length >= parseInt("<%ATOC_MINHEADERS%>",10) && !hmDevice.phone) {
 		$("a#atoclink").css("visibility","visible").off(hmBrowser.touchstart + " keydown").on(hmBrowser.touchstart + " keydown", 
 			function(event){
 			hmpage.atocmode = "keyboard";
@@ -704,7 +805,12 @@ hmWebHelp.hmTopicPageInit = function() {
 				target = hmWebHelp.targetCheck(target);
 				if (hmWebHelp.hmMainPageCheck(target)) {
 					//History.pushState(null,null,target);
-					hmWebHelp.tocNav({action: "set", href: target, bs: false});
+					hmWebHelp.tocNav({action: "set", href: target, bs: false});<IF_GA4ACCOUNT>
+					// Track topic link click
+					if (hmBrowser.server && gaaccount !== "") {
+					hmWebHelp.track('topic', target);
+
+					}</IF_GA4ACCOUNT>
 				}
 			}
 		});
@@ -919,10 +1025,10 @@ hmWebHelp.hmTopicPageInit = function() {
 			// Set hamburger menu item based on whether there are toggles open on the page
 			if ($dropToggles.filter("[data-state='1']").length > 0) {
 				$("svg#showhide_toggles_icon").find("use").attr("xlink:href","#eye-off");
-				$("li#showhide_toggles span").first().html("Hide Expanding Text");
+				$("li#showhide_toggles span").first().html("<%HMBTEXT_TOGGLES_HIDE%>");
 			} else {
 				$("svg#showhide_toggles_icon").find("use").attr("xlink:href","#eye");
-				$("li#showhide_toggles span").first().html("Show Expanding Text");
+				$("li#showhide_toggles span").first().html("<%HMBTEXT_TOGGLES_SHOW%>");
 			}
 			
 		}
@@ -931,7 +1037,7 @@ hmWebHelp.hmTopicPageInit = function() {
 		function manageBorders() {
 		var toWide = false,
 			toNarrow = false,
-			activeBorderWidth = "thin",
+			activeBorderWidth = "<%OUTER_BORDERS_WIDTH%>",
 			bOffset = parseInt((activeBorderWidth == "thin" ? "1" : activeBorderWidth)) * 2,
 			viewportWidth = $("div#helpwrapper").width(),
 			windowWidth = $(window).width() - bOffset;
@@ -972,19 +1078,19 @@ hmWebHelp.hmTopicPageInit = function() {
 		if (hmDevice.embedded && !hmDevice.phone) {
 			
 			if (hmDevice.desktop) {
-				if (true) {
-					$("div#helpwrapper").css("border", "thin solid #888888");
+				if (<%OPT_EMBEDDED_BORDER%>) {
+					$("div#helpwrapper").css("border", "<%OUTER_BORDERS_WIDTH%> solid <%PAGE_BORDERCOLOR%>");
 				}
 				else {
-					$("div#helpwrapper").css("border", "0 solid #888888");
+					$("div#helpwrapper").css("border", "0 solid <%PAGE_BORDERCOLOR%>");
 				}
 				
 			}
 			
 			if (hmBrowser.isaspx ) {
 				let $hmb_zoomentry = $("a[onclick='hmWebHelp.doFullEmbedWindow(this)']");
-				$hmb_zoomentry.attr("title","Open this documentation in a new tab").attr("aria-label","Open this documentation in a new tab");
-				$hmb_zoomentry.children("span").first().text("Open in New Window");
+				$hmb_zoomentry.attr("title","<%HMBTEXT_ASPXFULLWINDOW_TIP%>").attr("aria-label","<%HMBTEXT_ASPXFULLWINDOW_TIP%>");
+				$hmb_zoomentry.children("span").first().text("<%HMBTEXT_ASPXFULLWINDOW%>");
 			}
 		}
 		
@@ -1050,10 +1156,10 @@ hmWebHelp.hmTopicPageInit = function() {
 				$(tableType).each(function() {
 					tableCounter++;
 					$(this).hide().attr("id","ltable" + tableCounter).before(
-						'<div class="openLTable" onclick="hmWebHelp.extFuncs(\'toggleLayoutTable\',{action: \'show\',table:\'table#ltable'+tableCounter+'\',obj:this})">Tap to View Table</div>');
+						'<div class="openLTable" onclick="hmWebHelp.extFuncs(\'toggleLayoutTable\',{action: \'show\',table:\'table#ltable'+tableCounter+'\',obj:this})"><%BTNTEXT_LTABLE%></div>');
 					});
 			} // Mobile browsers
-
+<%POSTLOAD_PAGEFUNC%>
 		
 };
 
@@ -1258,8 +1364,8 @@ hmWebHelp.hmMainPageInit = function() {
 		hmWebHelp.resizePanes(parseInt(hmpage.FnavWidth(),10));
 	   hmWebHelp.pageDimensions = new hmWebHelp.pageDims();
 	   if (hmDevice.embedded) hmWebHelp.pageDimensions.embedInit();
-	   if (((hmpage.headerclosedonopen && !hmDevice.embedded) || (true && hmDevice.embedded)) && !hmDevice.phone) {
-		   hmWebHelp.pageDimensions.pageHeaderUpDown(false);
+	   if (((hmpage.headerclosedonopen && !hmDevice.embedded) || (<%OPT_EMBEDDED_HIDEHEADER%> && hmDevice.embedded)) && !hmDevice.phone) {
+		   hmWebHelp.pageDimensions.pageHeaderUpDown(<%OPT_NOHEADERCONTROLS%>);
 		   $("svg#toolbar_updown_close").hide();
 	   } else {
 		   $("svg#toolbar_updown_open").hide();
@@ -1470,7 +1576,7 @@ hmWebHelp.pageDims = function() {
 		
 		function phUpDown() {
 		
-		var headerPos = "1.0rem",
+		var headerPos = "<%HEADERBOX_TOP%>rem",
 			navboxPosDown = hmpage.Fpix2em(hmpage.$navwrapper.position().top) + "rem",
 			topicPosDown = hmpage.Fpix2em(hmpage.$topicbox.position().top) + "rem",
 			topicPosUp = "0rem",
@@ -1480,14 +1586,14 @@ hmWebHelp.pageDims = function() {
 			$bothBoxes = $("div#navwrapper, main#topicbox"),
 			headerOn = function(){return (hmpage.$headerbox.height() > 0);},
 			inProgress =  false,
-			hboxHeight = (4.0 + hmpage.Fpix2em(parseInt("1px",10))) + "rem";
+			hboxHeight = (<%HEADERBOX_HEIGHT%> + hmpage.Fpix2em(parseInt("<%INNER_BORDERS_WIDTH%>",10))) + "rem";
 			
 		return function(animOff) {
 
 			if (inProgress) return;
 			inProgress = true;
 			var reset = false;
-			if ((animOff && animate) || (!hmpage.initialized && animate)) {
+			if ((animOff && animate) || (!hmpage.initialized && animate)<IF_VAR[OPT_NOHEADERCONTROLS=true]>|| true</IF_VAR[OPT_NOHEADERCONTROLS=true]>) {
 				animate = false;
 				reset = true;
 				} else animate = true;
@@ -1513,9 +1619,9 @@ hmWebHelp.pageDims = function() {
 				hmpage.$headermenu.hide();
 				$("div#headerwrapper").css("border-bottom","none");
 				$("svg#showhide_header_icon").find("use").attr("xlink:href","#expand");
-				$("li#showhide_pageheader a").first().attr("title","Show Page Header").attr("aria-label","Show Page Header");
-				$("div#toolbutton_wrapper").attr("aria-label","Show Page Header");
-				$("li#showhide_pageheader span").first().html("Show Page Header");
+				$("li#showhide_pageheader a").first().attr("title","<%HMBTEXT_HEADER_SHOW%>").attr("aria-label","<%HMBTEXT_HEADER_SHOW%>");
+				$("div#toolbutton_wrapper").attr("aria-label","<%HMBTEXT_HEADER_SHOW%>");
+				$("li#showhide_pageheader span").first().html("<%HMBTEXT_HEADER_SHOW%>");
 				$("ul#main-menu, div#homebutton").hide();
 				inProgress = false;
 				hmWebHelp.nsheader();
@@ -1545,9 +1651,9 @@ hmWebHelp.pageDims = function() {
 			},(animate ? "400" : "0"), function(){
 				if (reset) animate = true;
 				$("svg#showhide_header_icon").find("use").attr("xlink:href","#collapse");
-				$("li#showhide_pageheader a").first().attr("title","Hide Page Header");
-				$("li#showhide_pageheader span").first().html("Hide Page Header");
-				$("div#toolbutton_wrapper").attr("aria-label","Hide Page Header");
+				$("li#showhide_pageheader a").first().attr("title","<%HMBTEXT_HEADER_HIDE%>");
+				$("li#showhide_pageheader span").first().html("<%HMBTEXT_HEADER_HIDE%>");
+				$("div#toolbutton_wrapper").attr("aria-label","<%HMBTEXT_HEADER_HIDE%>");
 				hmWebHelp.nsheader();
 				sessionVariable.setSV("headerState","open");
 			});
@@ -1629,7 +1735,7 @@ hmWebHelp.pageDims = function() {
 				},animate ? 250 : 0, function(){
 					$("svg#draghandleicon_l").hide();
 					$("svg#draghandleicon_r").show();
-					hmpage.$dragwrapper.attr("aria-label","Show Navigation Pane");
+					hmpage.$dragwrapper.attr("aria-label","<%HMBTEXT_NAV_SHOW%>");
 					hmpage.$navtools.removeClass("over");
 					if (reset) animate = true; 
 					navShadow();
@@ -1641,7 +1747,7 @@ hmWebHelp.pageDims = function() {
 			var reset = false;
 			$("svg#draghandleicon_r").hide();
 			$("svg#draghandleicon_l").show();
-			hmpage.$dragwrapper.attr("aria-label","Hide Navigation Pane");
+			hmpage.$dragwrapper.attr("aria-label","<%HMBTEXT_NAV_HIDE%>");
 			if (hmpage.topicleft && !hmpage.$navtools.first().hasClass("over")) {
 				hmpage.$navtools.addClass("over");
 			}
@@ -1665,7 +1771,7 @@ hmWebHelp.pageDims = function() {
 		// Init for embedded WebHelp $$$
 		function embedInit() {
 			if (!hmDevice.embedded && hmDevice.desktop) {
-				if (hmpage.$headerbox.is(":hidden") && !false)
+				if (hmpage.$headerbox.is(":hidden") && !<%OPT_PAGEHEAD_CLOSED%>)
 					hmWebHelp.pageDimensions.pageHeaderUpDown(true);
 				if (hmpage.breadcrumbs)
 					$("p#ptopic_breadcrumbs").show();
@@ -1722,7 +1828,7 @@ hmWebHelp.pageDims = function() {
 		// Narrow page layout for desktop with narrow window
 		if (!hmpage.topicleft && hmpage.Fnarrowpage()) {
 			moveTopicLeft();
-			if (true)
+			if (<%DESK_TOCAUTOHIDE%>)
 				moveTOCLeft();
 			}
 		if (hmpage.topicleft && !hmpage.navclosed && !hmpage.Fnarrowpage()) {
@@ -1743,7 +1849,7 @@ hmWebHelp.pageDims = function() {
 		if ( !hmpage.initialized || aspectChange("width")) {
 			if (hmpage.Fnarrowpage()) {
 					moveTopicLeft();
-					if ((true && hmDevice.desktop) || (true && !hmDevice.desktop))
+					if ((<%DESK_TOCAUTOHIDE%> && hmDevice.desktop) || (<%MOBILE_TOCAUTOHIDE%> && !hmDevice.desktop))
 						moveTOCLeft();
 					navShadow();
 			} else if (hmpage.Fnarrowpage() && hmpage.topicleft) {
@@ -1884,7 +1990,7 @@ hmWebHelp.timedReset = function(vari,valu,timer) {
 
 // Flash paragraph of target anchor on arrival
 hmWebHelp.flashTarget = function(obj,repeat,delay) {
-	if (!true) return;
+	if (!<%OPT_BLINK_ANCHOR_TARGET%>) return;
 	repeat--;
 	doFlash();
 	function doFlash() {
@@ -1967,7 +2073,7 @@ function hmLoadTopic(topicObj) {
 	// hmWebHelp.currentTopic = topicObj;
 	
 	var titleBarText = topicObj.hmTitle;
-	switch ("topic") {
+	switch ("<%TITLEBAR_CONTENT%>") {
 		case "project":
 		titleBarText = $("h1#hm_pageheader").text();
 		break;
@@ -1980,7 +2086,7 @@ function hmLoadTopic(topicObj) {
 	$("title").text(titleBarText);
 	
 	$("meta[name='keywords']").attr("content",topicObj.hmKeywords);
-	//$("p#ptopic_breadcrumbs").html("Navigation: " +(topicObj.hmBreadCrumbs !== "" ? topicObj.hmBreadCrumbs : " \<span\>&raquo; No topics above this level" + " &laquo;\<\/span\>"));
+	//$("p#ptopic_breadcrumbs").html("<%BREAD_LABEL%> " +(topicObj.hmBreadCrumbs !== "" ? topicObj.hmBreadCrumbs : " \<span\>&raquo; <%BREAD_NOTOPIC%>" + " &laquo;\<\/span\>"));
 	hmpage.hmDescription = typeof topicObj.hmDescription == "undefined" ? "" : topicObj.hmDescription;
 	$("meta[name='description']").attr("content",hmpage.hmDescription);
 	hmpage.hmPicture = typeof topicObj.hmPicture == "undefined" ? "" : topicObj.hmPicture;
@@ -1997,7 +2103,7 @@ function hmLoadTopic(topicObj) {
 	$("div#hmpagebody_scroller").html(topicObj.hmBody + hmpage.topicfooter);
 	
 	// $$$ Initialize featured images if present and enabled
-		if (false && hmpage.hmPicture !== "") {
+		if (<%OPT_FEATUREIMG%> && hmpage.hmPicture !== "") {
 			$("div#featureheader").remove();
 			if (!hmDevice.phone) {
 				hmWebHelp.extFuncs('hmFeatureHeader');
@@ -2009,9 +2115,9 @@ function hmLoadTopic(topicObj) {
 		else {
 			$("div#featureheader").remove();
 			if (!hmDevice.phone)
-				$('div#hmpagebody_scroller').css({"padding-top": "0.5rem"});
+				$('div#hmpagebody_scroller').css({"padding-top": "<%TOPIC_TOPMARGIN%>rem"});
 			else 
-				$('main#topicbox').css({"padding-top": "0.5rem"});
+				$('main#topicbox').css({"padding-top": "<%TOPIC_TOPMARGIN%>rem"});
 		}
 }
 
@@ -2073,7 +2179,7 @@ hmWebHelp.loadTopic = function(newTopic) {
 
 	cacheTopic = newTopic.jstopic.substr(newTopic.jstopic.lastIndexOf("\/")+1);
 	
-	if (Object.keys(hmWebHelp.visitedTopics).length > 300)
+	if (Object.keys(hmWebHelp.visitedTopics).length > <%MAX_TOPIC_CACHE%>)
 		hmWebHelp.visitedTopics = {};
 
 	if (!hmWebHelp.visitedTopics.hasOwnProperty(cacheTopic)){
@@ -2084,7 +2190,7 @@ hmWebHelp.loadTopic = function(newTopic) {
 			hmWebHelp.visitedTopics[cacheTopic] = true;
 			}).fail(function(){
 				History.pushState(null,null,hmFlags.hmMainPage);
-				alert("ERROR Topic Not Found " + newTopic.topic);
+				alert("<%ERROR_NOTFOUND%> " + newTopic.topic);
 			});
 	} else {
 		$.cachedScript(newTopic.jstopic).done(function(script,textStatus){
@@ -2135,7 +2241,7 @@ hmWebHelp.doFullEmbedWindow = function(obj) {
 	var $objCaption = $(obj).children("span").first(),
 		currentCaption = $objCaption.text(),
 		current,
-		newCaption = currentCaption == "Zoom Window Out" ? "Zoom Window In" : "Zoom Window Out",
+		newCaption = currentCaption == "<%HMBTEXT_ZOOMOUT%>" ? "<%HMBTEXT_ZOOMIN%>" : "<%HMBTEXT_ZOOMOUT%>",
 		currentIcon = $("svg#fullscreen_toggle").find("use").attr("xlink:href"),
 		newIcon = currentIcon == "#resize-full" ? "#resize-small" : "#resize-full",
 		parentdomain = (/^(https?:\/\/.*?)\/.*?$/i).exec(document.referrer)[1];
@@ -2516,7 +2622,7 @@ hmWebHelp.nsheader = function() {
 	};
 
 hmWebHelp.fHeadUpdate = function() {
-	if (!false) return;
+	if (!<%OPT_FEATUREIMG%>) return;
 	if ($("div#featureheader").length < 1) return;
 	if (typeof hmWebHelp.funcs.hmFeatureHeader !== "undefined")
 			hmWebHelp.funcs.hmFeatureHeader("resize");
@@ -2684,7 +2790,7 @@ $(document).ready(function() {
 	});
 
 	// Activate keyboard info on first navigation key 
-	if (hmDevice.desktop && false) {
+	if (hmDevice.desktop && <%OPT_KEYBOARDINFO%>) {
 		
 		hmWebHelp.pageFocus("info");
 		/*$(window).on("keydown.firstTab", function(event){

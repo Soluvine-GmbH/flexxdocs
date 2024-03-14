@@ -18,10 +18,10 @@ function hmFS() {
 				
 				switch (dv) {
 				case "phone":
-					doBase(1.0,10);
+					doBase(<%FONTFACTOR_PHONE%>,10);
 					break;
 				case "tablet": 
-					doBase(1.0,10);
+					doBase(<%FONTFACTOR_TABLET%>,10);
 					break;
 				case "desktop":
 					doBase(1,10);

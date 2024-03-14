@@ -13,8 +13,8 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	font-size: 100%;
-	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-	color: #444444;
+	font-family: <%UIFONT%>;
+	color: <%TOC_TEXTCOLOR%>;
 	background-color:transparent;
 	overflow: hidden;
 	}
@@ -60,7 +60,7 @@ div#hmpagebody {
 	overflow-y: scroll;
 	border-style: solid;
 	border-color: transparent;
-	border-width: 1px;
+	border-width: <%INNER_BORDERS_WIDTH%>;
 	border-radius: 0.5rem 0 0 0.5rem;
 	padding: 0 2px 0 0;
 	margin: 0 0 0 0;
@@ -96,21 +96,21 @@ p#tocnavbar { display: table-cell;}
 /* Header in TOC */
 div#tocHeader {
 	position: static;
-	border-bottom: 1px solid #888888;
+	border-bottom: 1px solid <%INNER_BORDERCOLOR%>;
 	margin: 0 0 0 0.5rem;
 	padding-bottom: 0.2rem;
-	background-image: url('../images/logo-image-mobile.png');
+	background-image: url('../images/<%HEADERLOGO_MOBILE%>');
 	background-repeat: no-repeat;
-	background-size: 1.2rem 1.2rem;
+	background-size: <%HEADERLOGO_MOBILE_SIZE%>rem <%HEADERLOGO_MOBILE_SIZE%>rem;
 	background-attachment: fixed;
 	background-position: 10px 4px;
 }
 p.tocProjectTitle {
-	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-family: <%PROJECTTITLE_FONT%>;
 	text-align: center;
-	font-size: 1.1rem;
-	color: #444444;
-	padding-left: calc(1.2rem + 5px);
+	font-size: <%PROJECTTITLE_SIZE%>rem;
+	color: <%PROJECTTITLE_COLOR%>;
+	padding-left: calc(<%HEADERLOGO_MOBILE_SIZE%>rem + 5px);
 }
 a#tocHeaderLink:link {
 	text-decoration: none;
@@ -150,23 +150,23 @@ ul#toc li > a {
 	}
 
 ul#toc li a:link, ul#toc li a:visited {
-	color: #444444;
+	color: <%TOC_TEXTCOLOR%>;
 	}
 ul#toc li a:hover {
-	background-color: #eaeaea;
-	border: thin dashed #444444;
+	background-color: <%TOC_BGCOLOR_ACTIVE%>;
+	border: thin dashed <%TOC_TEXTCOLOR%>;
 	}
 ul#toc li a:focus {
 	background-color: transparent;
-	border: thin dashed #000000;
+	border: thin dashed <%TOC_TEXTCOLOR_ACTIVE%>;
 	}
 ul#toc li a.current {
-	background-color: #eaeaea;
-	border: thin dashed #444444;
-	color: #000000;
+	background-color: <%TOC_BGCOLOR_ACTIVE%>;
+	border: thin dashed <%TOC_TEXTCOLOR%>;
+	color: <%TOC_TEXTCOLOR_ACTIVE%>;
 	}
 ul#toc li a.current:hover {
-	border: thin solid #000000;
+	border: thin solid <%TOC_TEXTCOLOR_ACTIVE%>;
 	}
 
 ul#toc li.lv2 a {

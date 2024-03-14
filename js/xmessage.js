@@ -11,7 +11,7 @@ function xMsg(ogn) {
 	// We need the domain and protocol when online but not when running locally 
 	// Embedded domains are only needed when embedding WebHelp from another domain
 	var docDomain = document.domain,
-		allowedDomains = ("").replace(/ /g,"");
+		allowedDomains = ("<%EMBEDDED_DOMAINS%>").replace(/ /g,"");
 
 		if (allowedDomains == "") {
 			allowedDomains = [];

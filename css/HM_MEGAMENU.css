@@ -119,13 +119,18 @@ div#headerwrapper {
 
 /* Company logo at the left end */
 #menu-wrapper div#homebutton {
-  width: 167px;
-  height: 40px;
-  background: url('../images/Soluvine_Blau_167.png') left top no-repeat;
+  width: <%HEADERLOGO_WIDTH%>px;
+  height: <%HEADERLOGO_HEIGHT%>px;
+  background: url('../images/<%HEADERLOGO%>') left top no-repeat;
   margin: 6px 0 0 0;
   float: left;
 }
-
+<IF_VAR[OPT_NOHEADERLOGO=true]>
+#menu-wrapper div#homebutton {
+	background:  url('../images/spacer.gif') left top no-repeat;
+	width: 10px;
+	height: <%HEADERLOGO_HEIGHT%>px;
+}</IF_VAR[OPT_NOHEADERLOGO=true]>
 #menu-wrapper div#homebutton a {
   display: block;
   width: 100%;

@@ -22,14 +22,14 @@
 			
 			if (successful) {
 				sel.removeAllRanges();
-				$codeLink.html("Copied!");
+				$codeLink.html("<%CODESAMPLE_COPIED%>");
 				
 				setTimeout(function() {
 					$codeLink.html($codeLinkHTML);
 					},1000);
 				}
 			} catch(err) {  
-				alert('Sorry, cannot copy to clipboard with this browser!'); 
+				alert('<%CODESAMPLE_NOCOPY%>'); 
 				} 		
 		},300);
 }

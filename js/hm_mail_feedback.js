@@ -15,7 +15,7 @@ function mFb() {
 	varStr = varStr.replace(/&quot;/g, '"');
 	varStr = varStr.replace(/&amp;/g, '&');
 	varStr = varStr.replace(/&nbsp;|&NBSP;/g, ' ');
-	if (!false) {
+	if (!<%FB_OLDENCODE%>) {
 		varStr = encodeURIComponent(varStr);
 		varStr = varStr.replace(/%24CRLF%24/g,'%0A%0D');
 		return varStr;
@@ -53,14 +53,14 @@ function mFb() {
 
 	// Main variables
 	var topicTitle = function(){ return unQuote($("h1.topictitle").first().text());},
-	topicRef = function() {return unQuote("Reference:");},
-	fbbody = unQuote("Dear Support Staff,"),
-	mailsubject = function(){return(unQuote("Feedback on:" +  " " + $("h1#hm_pageheader").text() + " > " + $("h1.topictitle").text()));},
+	topicRef = function() {return unQuote("<%FB_REF%>");},
+	fbbody = unQuote("<%FB_BODY%>"),
+	mailsubject = function(){return(unQuote("<%FB_SUBJ%>" +  " " + $("h1#hm_pageheader").text() + " > " + $("h1.topictitle").text()));},
 	mailrecipient = helpman_mailrecipient,
-	simplerecipient = "support@ec-software.com",
-	simplesubject = "Documentation%20Feedback",
-	mailurl = "",
-	query = "" !== "" ? "" : false;
+	simplerecipient = "<%FB_TONOJS%>",
+	simplesubject = "<%FB_NOJS%>",
+	mailurl = "<%FB_MAILURL%>",
+	query = "<%FB_MAILURL_QUERY%>" !== "" ? "<%FB_MAILURL_QUERY%>" : false;
 
 	// User has set an URL instead of normal feedback:
 	var doMailURL = function(url) {
@@ -79,7 +79,7 @@ function mFb() {
 	return function() {
 	
 	// Simplified version for problems with special character sets
-	var simplefb = false;
+	var simplefb = <%FB_SIMPLEFB%>;
 	
 	// Reference to the topic
 	var topicReference = window.location.protocol + "%2F%2F" + window.location.hostname + encodeURIComponent(window.location.pathname);

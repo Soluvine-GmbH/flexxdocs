@@ -2,7 +2,7 @@
 	 Copyright (c) 2015-2023 by Tim Green. All rights reserved. Contact: https://www.helpandmanual.com
 */
 body { 
-	font-size: 100;
+	font-size: <%HMFONTSIZEBASE%>;
 	background-color: #ffffff;
 	padding: 10px;
 	-moz-text-size-adjust: none;
@@ -37,7 +37,8 @@ div#topicheader {
 
 /* Topic title in topic header*/
 p#ptopic_breadcrumbs {
-	display: none;
+	display: none;<IF_VAR[PRINT_BREADCRUMBS=true]>
+	display: block;</IF_VAR[PRINT_BREADCRUMBS=true]>
 	color: #000000;
 	}
 p#ptopic_breadcrumbs a {
@@ -46,7 +47,7 @@ p#ptopic_breadcrumbs a {
 	font-style: normal; 
 	}
 h1.topictitle {
-	font-size: 1.5rem;
+	font-size: <%TOPICTITLE_FONTSIZE%>rem;
 	font-weight: bold;
 	color: #000000;
 	margin: 0; padding: 0;

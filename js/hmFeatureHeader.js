@@ -64,7 +64,7 @@ function fh() {
 	self.fhInit = function() {
 
 		if ($("div#featureheader").length < 1)
-			$("div#hmpagebody").prepend('<div id="featureheader" title="Click to show/hide description"><p id="featuretext"></p></div>');
+			$("div#hmpagebody").prepend('<div id="featureheader" title="<%FEATURE_TIP%>"><p id="featuretext"></p></div>');
 		$fhead = $("div#featureheader");
 		$pscroller = $('div#hmpagebody_scroller');
 		$fp = $("p#featuretext");
