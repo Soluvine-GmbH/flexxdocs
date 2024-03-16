@@ -19,27 +19,27 @@ div#dragsurface {
 	
 div.hmpopup, p.hmpopup {
 	margin: 0; padding: 0;
-	font-family: <%UIFONT%>;
+	font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
 div#hmpopupbox {
 	position: absolute; 
 	display: none; 
-	border: thin solid <%POPUP_TITLEBAR_BGCOLOR%>;
-	background-color: <%POPUP_TITLEBAR_BGCOLOR%>;
+	border: thin solid #bfbfbf;
+	background-color: #bfbfbf;
 	top: 1rem; left: 1rem;
 	width: 20rem;
 	height: 3.6rem;
-	box-shadow: 0.125rem 0.125rem 0.500rem 0.025rem <%SHADOW_COLOR%>;
+	box-shadow: 0.125rem 0.125rem 0.500rem 0.025rem #959595;
 	z-index: 20000;
 	}
 div#hmpopuptitlebar {
 	position: absolute;
 	top: 0; left: 0; right: -2px; 
 	height: 3rem;
-	background-color: <%POPUP_TITLEBAR_BGCOLOR%>;
+	background-color: #bfbfbf;
 	padding: 0 0.3rem; 
-	color: <%POPUP_TITLEBAR_TEXTCOLOR%>;
+	color: #444444;
 	font-weight: bold;
 }
 div#hmpopuptitlebar p.hmpopup {

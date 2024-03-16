@@ -13,8 +13,8 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	font-size: 100%;
-	font-family: <%UIFONT%>;
-	color: <%TOC_TEXTCOLOR%>;
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	color: #444444;
 	background-color:transparent;
 	overflow: hidden;
 	}
@@ -60,7 +60,7 @@ div#hmpagebody {
 	overflow-y: scroll;
 	border-style: solid;
 	border-color: transparent;
-	border-width: <%INNER_BORDERS_WIDTH%>;
+	border-width: 1px;
 	border-radius: 0.5rem 0 0 0.5rem;
 	padding: 0 2px 0 0;
 	margin: 0 0 0 0;
@@ -96,21 +96,21 @@ p#tocnavbar { display: table-cell;}
 /* Header in TOC */
 div#tocHeader {
 	position: static;
-	border-bottom: 1px solid <%INNER_BORDERCOLOR%>;
+	border-bottom: 1px solid #888888;
 	margin: 0 0 0 0.5rem;
 	padding-bottom: 0.2rem;
-	background-image: url('../images/<%HEADERLOGO_MOBILE%>');
+	background-image: url('../images/logo-image-mobile.png');
 	background-repeat: no-repeat;
-	background-size: <%HEADERLOGO_MOBILE_SIZE%>rem <%HEADERLOGO_MOBILE_SIZE%>rem;
+	background-size: 1.2rem 1.2rem;
 	background-attachment: fixed;
 	background-position: 10px 4px;
 }
 p.tocProjectTitle {
-	font-family: <%PROJECTTITLE_FONT%>;
+	font-family: Roboto, Helvetica, sans-serif;
 	text-align: center;
-	font-size: <%PROJECTTITLE_SIZE%>rem;
-	color: <%PROJECTTITLE_COLOR%>;
-	padding-left: calc(<%HEADERLOGO_MOBILE_SIZE%>rem + 5px);
+	font-size: 1.1rem;
+	color: #444444;
+	padding-left: calc(1.2rem + 5px);
 }
 a#tocHeaderLink:link {
 	text-decoration: none;
@@ -150,23 +150,23 @@ ul#toc li > a {
 	}
 
 ul#toc li a:link, ul#toc li a:visited {
-	color: <%TOC_TEXTCOLOR%>;
+	color: #444444;
 	}
 ul#toc li a:hover {
-	background-color: <%TOC_BGCOLOR_ACTIVE%>;
-	border: thin dashed <%TOC_TEXTCOLOR%>;
+	background-color: #eaeaea;
+	border: thin dashed #444444;
 	}
 ul#toc li a:focus {
 	background-color: transparent;
-	border: thin dashed <%TOC_TEXTCOLOR_ACTIVE%>;
+	border: thin dashed #000000;
 	}
 ul#toc li a.current {
-	background-color: <%TOC_BGCOLOR_ACTIVE%>;
-	border: thin dashed <%TOC_TEXTCOLOR%>;
-	color: <%TOC_TEXTCOLOR_ACTIVE%>;
+	background-color: #eaeaea;
+	border: thin dashed #444444;
+	color: #000000;
 	}
 ul#toc li a.current:hover {
-	border: thin solid <%TOC_TEXTCOLOR_ACTIVE%>;
+	border: thin solid #000000;
 	}
 
 ul#toc li.lv2 a {

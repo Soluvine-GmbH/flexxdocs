@@ -67,7 +67,7 @@ function hmDropDownToggles() {
 			// Change hamburger menu entries if this is not a multi-toggle operation
 			if (!multi) {
 				$("svg#showhide_toggles_icon").find("use").attr("xlink:href","#eye-off");
-				$("li#showhide_toggles span").first().html("<%HMBTEXT_TOGGLES_HIDE%>");
+				$("li#showhide_toggles span").first().html("Hide Expanding Text");
 			}
 		}
 		
@@ -79,7 +79,7 @@ function hmDropDownToggles() {
 			if (!multi) {
 				if ($("a.dropdown-toggle[data-state='1']").length < 1) {
 				$("svg#showhide_toggles_icon").find("use").attr("xlink:href","#eye");
-				$("li#showhide_toggles span").first().html("<%HMBTEXT_TOGGLES_SHOW%>");
+				$("li#showhide_toggles span").first().html("Show Expanding Text");
 				}
 			}
 			
@@ -177,7 +177,7 @@ function hmDropDownToggles() {
 						}});},timeoutSpeed+50);
 					} 
 		$("svg#showhide_toggles_icon").find("use").attr("xlink:href","#eye");
-		$("li#showhide_toggles span").first().html("<%HMBTEXT_TOGGLES_SHOW%>");
+		$("li#showhide_toggles span").first().html("Show Expanding Text");
 		} else if (mode === "expand") {
 			self.HMToggle($currentToggle,mode,speed,"multi");
 			index++;
@@ -194,7 +194,7 @@ function hmDropDownToggles() {
 						},timeoutSpeed+50);
 					} 
 		$("svg#showhide_toggles_icon").find("use").attr("xlink:href","#eye-off");
-		$("li#showhide_toggles span").first().html("<%HMBTEXT_TOGGLES_HIDE%>");
+		$("li#showhide_toggles span").first().html("Hide Expanding Text");
 		}
 	}
 	

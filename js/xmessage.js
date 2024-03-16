@@ -11,7 +11,7 @@ function xMsg(ogn) {
 	// We need the domain and protocol when online but not when running locally 
 	// Embedded domains are only needed when embedding WebHelp from another domain
 	var docDomain = document.domain,
-		allowedDomains = ("<%EMBEDDED_DOMAINS%>").replace(/ /g,"");
+		allowedDomains = ("").replace(/ /g,"");
 
 		if (allowedDomains == "") {
 			allowedDomains = [];
@@ -123,7 +123,7 @@ function xMsg(ogn) {
 			
 			// Prevent access to any but the current domain when on a web server and allowed domains when remote
 			// Full communication is allowed on local because X-Domain attacks are not possible there
-
+                        if (typeof event.data.action == "undefined") return;
 			var currentProtocol = document.location.protocol, func, callback,
 				domainOK = allowedDomains.length > 0 ? allowedDomains.includes(event.origin) : event.origin == docDomain;
 

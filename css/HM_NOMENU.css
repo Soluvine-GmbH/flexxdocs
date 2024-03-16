@@ -5,9 +5,9 @@
 nav#header_menu {
 	position: absolute;
 	top: 0; right: 0; bottom: 0; left: 0;
-	font-family: <%UIFONT%>;
-	background-image: url('../images/<%HEADER_BGIMAGE%>');
-	background-color: <%HEADER_BGCOLOR%>;
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	background-image: url('../images/');
+	background-color: #ffffff;
 	background-position: 0 0;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -33,7 +33,7 @@ div#phonebutton, div#homebutton a {
 	position: fixed;
 	display: none;
 	top: 7rem; 
-	font-size: calc(<%DROPMENU_FONTSIZE%>rem * 1.2);
+	font-size: calc(0.832rem * 1.2);
 	z-index: 1000;
 	width: 100%;
 	}
@@ -49,9 +49,9 @@ a#phonemenulink {
 }
 /* Company Logo */
 div#homebutton {
-  width: <%HEADERLOGO_WIDTH%>px;
-  height: <%HEADERLOGO_HEIGHT%>px;
-  float: <%HEADERLOGO_POSITION%>;
+  width: 167px;
+  height: 40px;
+  float: left;
   position: relative;
   z-index: 903;
   padding-left: 10px;
@@ -60,7 +60,7 @@ div#homebutton a {
   display: block;
   width: 100%;
   height: 100%;
-  background: url(../images/<%HEADERLOGO%>) <%HEADERLOGO_POSITION%> top no-repeat;
+  background: url(../images/Soluvine_Blau_167.png) left top no-repeat;
   text-decoration: none;
   padding-left: 10px;
 }

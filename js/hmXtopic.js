@@ -1,14 +1,14 @@
 ﻿// Project information
 
 hmProjectInfo = {
-	title: "<%TITLE%>",
-	author: "<%AUTHOR%>",
-	copyright: "<%COPYRIGHT%>",
-	summary: "<%SUMMARY%>",
-	version: "<%VERSION%>",
-	date: "<%DATELONG%>",
-	language: "<%XMLLANG%>",
-	mainfile: "<%HREF_TOP_PAGE%>"
+	title: "FlexxWare Documentation",
+	author: "Soluvine GmbH",
+	copyright: "(c) Soluvine GmbH",
+	summary: "&nbsp;",
+	version: "1.0.0",
+	date: "Samstag, 16. März 2024",
+	language: "de-de",
+	mainfile: "index.html"
 	}
 
 // Handler for post-loading functions from files
@@ -99,7 +99,7 @@ hmProjectInfo = {
 		});
 	
 	$textpopup = $("div#textpopup");
-	$textpopup.attr("title","<%FIELD_PLAINPOPS%>").attr("aria-label","<%FIELD_PLAINPOPS%>");
+	$textpopup.attr("title","Click outside popup to close. Popups in field-level topics are plain text only.").attr("aria-label","Click outside popup to close. Popups in field-level topics are plain text only.");
 	
 	var hmClosePopup = function(reset) {
 		if (reset)
@@ -184,7 +184,7 @@ hmProjectInfo = {
 	function(event){
 		event.preventDefault();
 		event.stopPropagation();
-		alert("<%FIELD_NOVIDBOX%>");
+		alert("Video lightboxes are not supported in field-level mode. You need to open this page in the main help to view this video.");
 	});
 	}
 	

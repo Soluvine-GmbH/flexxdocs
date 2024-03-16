@@ -213,9 +213,9 @@ hmXPopup.closePopup = function() {
 // Bookmarker
 hmXPopup.bookmarkPermalink = function() {
 	if (hmBrowser.server) {
-	        alert("<%PERMA_DOBOOKMARK%>");
+	        alert("Right-click on permalink to copy, then press CTRL+D or CMD+D to bookmark.");
 	} else {
-			alert("<%PERMA_NOSERVER%>");
+			alert("This page is stored locally. You can only bookmark pages on a web server.");
 	}
 	}; // Bookmark()
 
@@ -240,8 +240,8 @@ hmLoadPopup = function(popObj) {
 	if (typeof popObj.permalink !== 'undefined' && popObj.permalink){
 		hmXPopup.noresize = true;
 		$("textarea#plinkBox").text(document.location.protocol + "\/\/" + document.location.hostname + (document.location.port === "80" || document.location.port === "" ? "" : ":" + document.location.port) +  document.location.pathname);
-		$("p#permalink_tip").text("<%PERMA_TIP%>");
-		$("input#bookmarkPermalink").attr("value","<%PERMA_BOOKMARK%>");
+		$("p#permalink_tip").text("Right-click on permalink to copy to clipboard");
+		$("input#bookmarkPermalink").attr("value","Bookmark Topic");
 		$('input#selectPermalink').on(hmBrowser.touchstart, function(){
 			$('textarea#plinkBox').focus().select();
 		});
@@ -298,7 +298,7 @@ hmXPopup.loadPopup = function(thisPopup, refPath, refTitle) {
 			htmlSource = true;
 	}
 	
-	if (Object.keys(hmWebHelp.visitedTopics).length > <%MAX_TOPIC_CACHE%>)
+	if (Object.keys(hmWebHelp.visitedTopics).length > 300)
 		hmWebHelp.visitedTopics = {};
 
 	

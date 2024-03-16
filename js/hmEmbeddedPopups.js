@@ -30,7 +30,7 @@ var hmXPopup = {};
 	hmXPopup.topicExtension = "";
 	hmXPopup.visitedTopics = {}; 
 	hmXPopup.remoteAccess = hmLocalDomain !== hmTargetDomain;
-	hmXPopup.ProjectName = "<%TITLE%>";
+	hmXPopup.ProjectName = "FlexxWare Documentation";
 	hmXPopup.contentWidth = 0; 
 	hmXPopup.contentHeight = 0;
 	hmXPopup.topicWidth = 0;
@@ -176,7 +176,7 @@ var doHmXPopup = function() {
 	var $popparent = jQuery("body");
 	
 	// Create the popup components
-	$popparent.prepend('<div id="dragsurface" style="display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-image: url(\''+hmPopupPath+'images/spacer.gif\')" ></div><div id="hmpopupbox" class="hmpopup"><div id="hmpopuptitlebar" class="hmpopup"><div id="hmpopuptitle"  class="hmpopup"><p class="hmpopup"></p></div><div id="hmclosepopup" class="hmpopup"><span>X</span></div><div id="hmpopuptitlelink"><p class="linkheader"><a id="topiclinkheader" href="" target="_blank"><%FIELD_FULLHELPWIN%></a></p></div></div><div id="hmpopupbody"><iframe id="hmXPopupFrame" src="" class="hmpopup" frameborder="0"></iframe></div></div>'); 
+	$popparent.prepend('<div id="dragsurface" style="display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-image: url(\''+hmPopupPath+'images/spacer.gif\')" ></div><div id="hmpopupbox" class="hmpopup"><div id="hmpopuptitlebar" class="hmpopup"><div id="hmpopuptitle"  class="hmpopup"><p class="hmpopup"></p></div><div id="hmclosepopup" class="hmpopup"><span>X</span></div><div id="hmpopuptitlelink"><p class="linkheader"><a id="topiclinkheader" href="" target="_blank">Click here to open this topic in a full help window</a></p></div></div><div id="hmpopupbody"><iframe id="hmXPopupFrame" src="" class="hmpopup" frameborder="0"></iframe></div></div>'); 
 
 	// Get the JQ variables once for faster reuse
 	hmXPopup.$popup = jQuery("div#hmpopupbox");
