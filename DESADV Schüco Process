@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-06-07T14:53:06.580Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0" etag="6TlxlOc6haxn41hQPuF2" version="24.5.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-12T07:11:22.978Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0" etag="EKTHploAvo8h8aFCAHoF" version="24.5.2" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
-    <mxGraphModel dx="1636" dy="1145" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1876" dy="1195" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -84,13 +84,13 @@
         <mxCell id="WVUpO8cYb21K_BBqXil3-72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WVUpO8cYb21K_BBqXil3-71" source="WVUpO8cYb21K_BBqXil3-73" target="WVUpO8cYb21K_BBqXil3-75" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WVUpO8cYb21K_BBqXil3-73" value="Schüco purchase order&amp;nbsp;" style="whiteSpace=wrap;html=1;" parent="WVUpO8cYb21K_BBqXil3-71" vertex="1">
+        <mxCell id="WVUpO8cYb21K_BBqXil3-73" value="Schüco Sales order&amp;nbsp;" style="whiteSpace=wrap;html=1;" parent="WVUpO8cYb21K_BBqXil3-71" vertex="1">
           <mxGeometry x="194" y="30" width="70" height="50" as="geometry" />
         </mxCell>
         <mxCell id="WVUpO8cYb21K_BBqXil3-74" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WVUpO8cYb21K_BBqXil3-71" source="WVUpO8cYb21K_BBqXil3-75" target="WVUpO8cYb21K_BBqXil3-76" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WVUpO8cYb21K_BBqXil3-75" value="Schüco purchase confirm" style="whiteSpace=wrap;html=1;" parent="WVUpO8cYb21K_BBqXil3-71" vertex="1">
+        <mxCell id="WVUpO8cYb21K_BBqXil3-75" value="Schüco Sales confirm" style="whiteSpace=wrap;html=1;" parent="WVUpO8cYb21K_BBqXil3-71" vertex="1">
           <mxGeometry x="319" y="30" width="61" height="50" as="geometry" />
         </mxCell>
         <mxCell id="WVUpO8cYb21K_BBqXil3-76" value="Schüco sends DESADV" style="whiteSpace=wrap;html=1;" parent="WVUpO8cYb21K_BBqXil3-71" vertex="1">
@@ -217,12 +217,6 @@
         <mxCell id="WVUpO8cYb21K_BBqXil3-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="WVUpO8cYb21K_BBqXil3-37" target="WVUpO8cYb21K_BBqXil3-82" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="608" y="310" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="WVUpO8cYb21K_BBqXil3-107" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="570" y="230" as="sourcePoint" />
-            <mxPoint x="620" y="180" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="WVUpO8cYb21K_BBqXil3-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="WVUpO8cYb21K_BBqXil3-63" target="WVUpO8cYb21K_BBqXil3-88" edge="1">
